@@ -37,6 +37,10 @@ const blogConfig = {
 			杂谈: { icon: 'ph:chat-bold', color: '#3ba' },
 			生活: { icon: 'ph:shooting-star-bold', color: '#f77' },
 			代码: { icon: 'ph:code-bold', color: '#77f' },
+			CTF: { icon: 'ph:sword', color: '#00bb00' },
+			内网渗透: { icon: 'ph:network', color: '#bb0000' },
+			Linux: { icon: 'ph:terminal', color: '#FFD500' },
+			密码学: { icon: 'ph:lock-open', color: '#bb00bb' },
 		},
 		defaultCategoryIcon: 'ph:folder-bold',
 		/** 文章版式，首个为默认版式 */
@@ -73,7 +77,7 @@ const blogConfig = {
 		// 自己网站的 Cloudflare Insights 统计服务
 		//{ 'src': 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "97a4fe32ed8240ac8284e9bffaf03962"}', 'defer': true },
 		// Twikoo 评论系统
-		{ src: 'https://cdn.jsdelivr.net/npm/twikoo@1.7.1/dist/twikoo.min.js', defer: true },
+		{ src: '/twikoo.min.js', defer: true },
 	],
 
 	/** 自己部署的 Twikoo 服务 */

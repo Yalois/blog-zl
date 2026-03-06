@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import LinkCard from '../content/LinkCard.vue';
+
+</script>
+
 <template>
 <BlogWidget
 	card
@@ -5,13 +10,15 @@
 	title="其他平台"
 	bg-right
 >
-	<div class="title text-creative">
-		微信公众号
-	</div>
+	<Pic
+		src="https://img.sky233.top/img/2026/03/ffea19cdcec44fe724ebdb9f3adc109c8f817233394080aa73d15838ed9045c9.png"
+		alt="微信公众号"
+		width="100%"
+		height="75px"
+		class="rounded-full"
+	/>
 
-	<Tip copy icon :tip-options="{ placement: 'left' }">
-		<Icon name="ri:qq-fill" />169994096
-	</Tip>
+
 </BlogWidget>
 </template>
 
