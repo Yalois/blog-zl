@@ -34,6 +34,6 @@ const blogStats = [{
 
 <template>
 <BlogWidget card title="博客统计">
-	<ZDlGroup :items="blogStats" size="small" />
+	<ZDlGroup :items="blogStats" size="medium" />
 </BlogWidget>
 </template>

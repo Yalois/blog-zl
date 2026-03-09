@@ -95,13 +95,13 @@ export default defineAppConfig({
 		/** 展示标题文本，否则展示纯 Logo */
 		showTitle: true,
 		subtitle: blogConfig.subtitle,
-		emojiTail: ['📄', '🦌', '🙌', '🐟', '🏖️'],
+		emojiTail: ['🖥', '☁️', '⬛', '🐟', '🏖️'],
 	},
 
 	/** 友链页面 */
 	link: {
 		/** 无订阅源展示静音图标 */
-		remindNoFeed: true,
+		remindNoFeed: false,
 		/** 友链分组内随机排序 */
 		randomInGroup: true,
 	},
@@ -114,6 +114,7 @@ export default defineAppConfig({
 				{ icon: 'ph:files-bold', text: '文章', url: '/' },
 				{ icon: 'ph:link-bold', text: '友链', url: '/link' },
 				{ icon: 'ph:archive-bold', text: '归档', url: '/archive' },
+				{ icon: 'ph:subway-bold', text: '开往', url: 'https://www.travellings.cn/go.html' },
 			],
 		},
 	] satisfies Nav,
