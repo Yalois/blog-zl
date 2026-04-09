@@ -122,7 +122,16 @@ export default [
 			avatar: 'https://i.postimg.cc/SsmGDWnJ/f2874032bd4ade8b35d836818413495d.jpg',
 			archs: ['GitHub Pages'],
 			date: '2024-01-01',
-			}
+			},
+			{
+				author: '小志z',
+				title: '小志z',
+				desc: '热爱不止，折腾不息。',
+				link: 'https://blog.x-z-z.com/',
+				icon: 'https://img.x-z-z.com/i/2025/06/23/685972875c34a.jpg',
+				avatar: 'https://img.x-z-z.com/i/2025/06/23/685972875c34a.jpg',
+				date: '2025-01-01',
+				}
 		],
 	},
 	// #endregion
