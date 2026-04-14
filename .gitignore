@@ -25,10 +25,10 @@ logs
 
 # Custom
 .vercel
-content
-public/assets/*.webp
-public/assets/*.png
-public/assets/*.jpg
-public/assets/*.jpeg
-public/assets/*.bmp
-public/fimg
+/content
+/public/assets/*.webp
+/public/assets/*.png
+/public/assets/*.jpg
+/public/assets/*.jpeg
+/public/assets/*.bmp
+/public/fimg
