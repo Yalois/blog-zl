@@ -71,6 +71,7 @@
     "@nuxt/a11y": "catalog:quality",
     "@nuxt/hints": "catalog:quality",
     "@zinkawaii/stylelint-config": "catalog:quality",
+    "asciinema-player": "3.15.1",
     "cspell": "catalog:quality",
     "eslint": "catalog:quality",
     "fast-xml-parser": "catalog:util",
