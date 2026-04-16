@@ -24,6 +24,9 @@ catalogs:
     abcjs:
       specifier: ^6.6.2
       version: 6.6.2
+    asciinema-player:
+      specifier: ^3.15.1
+      version: 3.15.1
     nuxt-llms:
       specifier: ^0.2.0
       version: 0.2.0
@@ -245,9 +248,9 @@ importers:
       abcjs:
         specifier: catalog:content
         version: 6.6.2
-      better-sqlite3:
-        specifier: ^12.6.2
-        version: 12.6.2
+      asciinema-player:
+        specifier: catalog:content
+        version: 3.15.1
       ci-info:
         specifier: catalog:framework
         version: 4.4.0
@@ -2848,8 +2851,8 @@ packages:
     peerDependencies:
       solid-js: ^1.6.12
 
-  '@speed-highlight/core@1.2.14':
-    resolution: {integrity: sha512-G4ewlBNhUtlLvrJTb88d2mdy2KRijzs4UhnlrOSRT4bmjh/IqNElZa3zkrZ+TC47TwtlDWzVLFADljF1Ijp5hA==}
+  '@speed-highlight/core@1.2.15':
+    resolution: {integrity: sha512-BMq1K3DsElxDWawkX6eLg9+CKJrTVGCBAWVuHXVUV2u0s2711qiChLSId6ikYPfxhdYocLNt3wWwSvDiTvFabw==}
 
   '@sqlite.org/sqlite-wasm@3.50.4-build1':
     resolution: {integrity: sha512-Qig2Wso7gPkU1PtXwFzndh+CTRzrIFxVGqv6eCetjU7YqxlHItj+GvQYwYTppCRgAPawtRN/4AJcEgB9xDHGug==}
@@ -6422,8 +6425,8 @@ packages:
     peerDependencies:
       seroval: ^1.0
 
-  seroval@1.5.1:
-    resolution: {integrity: sha512-OwrZRZAfhHww0WEnKHDY8OM0U/Qs8OTfIDWhUD4BLpNJUfXK4cGmjiagGze086m+mhI+V2nD0gfbHEnJjb9STA==}
+  seroval@1.5.2:
+    resolution: {integrity: sha512-xcRN39BdsnO9Tf+VzsE7b3JyTJASItIV1FVFewJKCFcW4s4haIKS3e6vj8PGB9qBwC7tnuOywQMdv5N4qkzi7Q==}
     engines: {node: '>=10'}
 
   serve-placeholder@2.0.2:
@@ -9807,7 +9810,7 @@ snapshots:
     dependencies:
       solid-js: 1.9.12
 
-  '@speed-highlight/core@1.2.14': {}
+  '@speed-highlight/core@1.2.15': {}
 
   '@sqlite.org/sqlite-wasm@3.50.4-build1': {}
 
@@ -14408,11 +14411,11 @@ snapshots:
     dependencies:
       randombytes: 2.1.0
 
-  seroval-plugins@1.5.2(seroval@1.5.1):
+  seroval-plugins@1.5.2(seroval@1.5.2):
     dependencies:
-      seroval: 1.5.1
+      seroval: 1.5.2
 
-  seroval@1.5.1: {}
+  seroval@1.5.2: {}
 
   serve-placeholder@2.0.2:
     dependencies:
@@ -14576,8 +14579,8 @@ snapshots:
   solid-js@1.9.12:
     dependencies:
       csstype: 3.2.3
-      seroval: 1.5.1
-      seroval-plugins: 1.5.2(seroval@1.5.1)
+      seroval: 1.5.2
+      seroval-plugins: 1.5.2(seroval@1.5.2)
 
   solid-transition-group@0.2.3(solid-js@1.9.12):
     dependencies:

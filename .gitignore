@@ -25,7 +25,7 @@ logs
 
 # Custom
 .vercel
-/content
+/content/posts/*
 /public/assets/*.webp
 /public/assets/*.png
 /public/assets/*.jpg
