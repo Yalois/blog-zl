@@ -461,6 +461,25 @@ w: 我 呀 | 我 爱 | 你 | 你 爱 我 | 我 爱 你 蜜 雪 冰 城 甜 蜜 |
 :alert{icon="tabler:files" color="var(--c-accent)" title="仅标题，并且自定义图标和颜色"}
 ```
 ::
+### AsciinemaPlayer
+
+::tab{:tabs='["组件","语法"]'}
+#tab1
+:asciinema-player{src="/assets/hello.cast" autoPlay theme="tango" :speed="2"}
+#tab2
+```mdc wrap
+// 常见配置项参考
+cols: { type: Number, default: 80 },
+rows: { type: Number, default: 24 },
+autoPlay: { type: Boolean, default: false },
+preload: { type: Boolean, default: false },
+loop: { type: Boolean, default: false },
+theme: { type: String, default: 'asciinema' }, // 也可以是 'tango', 'solarized-dark' 等
+speed: { type: Number, default: 1 }
+
+:asciinema-player{src="/assets/hello.cast" autoPlay theme="tango" :speed="2"}
+```
+::
 
 ### Badge
 
