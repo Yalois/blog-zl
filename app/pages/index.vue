@@ -72,7 +72,8 @@ const listRecommended = computed(() => orderBy(
 	margin: 1rem;
 }
 
-.float-in-leave-to {
+/* 需高于 Article.vue 中同特异性的 .article-card { position: relative }，否则会被组件 CSS 覆盖 */
+.article-card.float-in-leave-to {
 	position: absolute;
 }
 </style>
