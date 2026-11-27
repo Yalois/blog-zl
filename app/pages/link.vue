@@ -27,37 +27,39 @@ const copyFields = {
 </script>
 
 <template>
-<div class="mobile-only">
-	<BlogHeader to="/" suffix="友链" tag="h1" />
+<div>
+	<div class="mobile-only">
+		<BlogHeader to="/" suffix="友链" tag="h1" />
+	</div>
+
+	<FeedGroup
+		v-for="group in feeds"
+		:key="group.name"
+		v-bind="group"
+		:shuffle="appConfig.link.randomInGroup"
+	/>
+
+	<Tab :tabs="['我的博客信息', '申请友链']" center>
+		<template #tab1>
+			<div class="link-tab">
+				<FeedCard v-bind="myFeed" />
+				<Copy v-for="(code, prompt) in copyFields" :key="prompt" :prompt :code />
+			</div>
+		</template>
+		<template #tab2>
+			<ContentRenderer
+				v-if="postLink"
+				:value="postLink"
+				class="article"
+			/>
+			<p v-else class="text-center">
+				可于 link.md 配置友链补充说明。
+			</p>
+		</template>
+	</Tab>
+
+	<PostComment />
 </div>
-
-<FeedGroup
-	v-for="group in feeds"
-	:key="group.name"
-	v-bind="group"
-	:shuffle="appConfig.link.randomInGroup"
-/>
-
-<Tab :tabs="['我的博客信息', '申请友链']" center>
-	<template #tab1>
-		<div class="link-tab">
-			<FeedCard v-bind="myFeed" />
-			<Copy v-for="(code, prompt) in copyFields" :key="prompt" :prompt :code />
-		</div>
-	</template>
-	<template #tab2>
-		<ContentRenderer
-			v-if="postLink"
-			:value="postLink"
-			class="article"
-		/>
-		<p v-else class="text-center">
-			可于 link.md 配置友链补充说明。
-		</p>
-	</template>
-</Tab>
-
-<PostComment />
 </template>
 
 <style lang="scss" scoped>

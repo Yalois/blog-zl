@@ -48,6 +48,7 @@
 
 	// 此处不建议给内容设置 padding
 	> #main-content {
+		position: relative; // 使切换页动画的“离场页面”（absolute）以内容区为基准
 		flex-grow: 1; // 使较小宽度的内容占满
 
 		// overflow: hidden; // 会使一部分元素吸顶失效
