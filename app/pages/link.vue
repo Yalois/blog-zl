@@ -4,12 +4,15 @@ import feeds from '~/feeds'
 
 const appConfig = useAppConfig()
 const layoutStore = useLayoutStore()
-layoutStore.setAside([])
 
 const { data: postLink } = await useAsyncData(
 	'/link',
 	() => queryCollection('content').path('/link').first(),
 )
+
+onMounted(() => {
+	layoutStore.setAside([])
+})
 
 useSeoMeta({
 	title: '友链',

@@ -2,8 +2,6 @@
 :root {
 	--max-bezier-to-full: cubic-bezier(0.5, 0, 1, 0.5);
 	--max-bezier-to-collapse: cubic-bezier(0, 0.5, 0.5, 1);
-	--ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
-	--ease-in-quad: cubic-bezier(0.4, 0, 1, 1);
 }
 
 @keyframes float-in {
@@ -51,34 +49,3 @@
 	transition-timing-function: var(--max-bezier-to-full);
 }
 
-/* 页面切换：新页面淡入并轻微上浮，旧页面脱离文档流淡出，避免高度塌陷导致页脚跳动 */
-.page-enter-active {
-	transition: opacity 0.3s var(--ease-out-quint), transform 0.3s var(--ease-out-quint);
-}
-
-.page-leave-active {
-	position: absolute;
-	inset-inline: 0;
-	transition: opacity 0.18s var(--ease-in-quad);
-	pointer-events: none;
-}
-
-.page-enter-from {
-	opacity: 0;
-	transform: translateY(0.5rem);
-}
-
-.page-leave-to {
-	opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.page-enter-active,
-	.page-leave-active {
-		transition: none;
-	}
-
-	.page-enter-from {
-		transform: none;
-	}
-}

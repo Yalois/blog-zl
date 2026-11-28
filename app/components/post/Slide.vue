@@ -11,6 +11,7 @@ const compConf = computed(() => appConfig.component.slide)
 
 // @keep-sorted
 const [carouselEl, carouselApi] = emblaCarouselVue({
+	align: 'start',
 	containScroll: false,
 	loop: true,
 	skipSnaps: true,
@@ -126,6 +127,7 @@ useEventListener(carouselEl, 'wheel', (e) => {
 
 	.slide-list {
 		display: flex;
+		gap: min(0.5em, 1%);
 		scroll-snap-type: x mandatory;
 	}
 }
@@ -149,7 +151,6 @@ useEventListener(carouselEl, 'wheel', (e) => {
 	width: max(12rem, 28%);
 	max-width: 80%;
 	aspect-ratio: 1.77;
-	margin: 0 min(0.5em, 1%);
 	border-radius: 0.5rem;
 	scroll-snap-align: center;
 	scroll-snap-stop: always;

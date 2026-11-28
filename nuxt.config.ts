@@ -43,10 +43,6 @@ export default defineNuxtConfig({
 			titleTemplate: `%s %separator ${blogConfig.title}`,
 			script: blogConfig.scripts,
 		},
-		// 页面切换动画，样式见 assets/css/animation.scss
-		pageTransition: {
-			name: 'page',
-		},
 		rootAttrs: {
 			id: 'blog-root',
 		},
