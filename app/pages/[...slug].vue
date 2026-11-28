@@ -46,7 +46,7 @@ if (import.meta.dev) {
 </script>
 
 <template>
-<div>
+<div class="post-page">
 	<template v-if="post">
 		<PostHeader v-bind="post" />
 		<PostExcerpt v-if="excerpt" :excerpt />
@@ -70,3 +70,25 @@ if (import.meta.dev) {
 	/>
 </div>
 </template>
+
+<style lang="scss" scoped>
+.post-page {
+	animation: post-fade-in 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes post-fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.post-page {
+		animation: none;
+	}
+}
+</style>

@@ -32,4 +32,4 @@ logs
 /public/assets/*.jpeg
 /public/assets/*.bmp
 /public/fimg
-.commandcode/taste/taste.md
+.commandcode/*
