@@ -1,3 +1,32 @@
+<script setup lang="ts">
+import { LazyPopoverLightbox } from '#components'
+
+const modalStore = useModalStore()
+const zoomEl = shallowRef<HTMLImageElement>()
+const zoomCaption = ref('')
+
+const { open: openLightbox } = modalStore.use(
+	() => h(LazyPopoverLightbox, {
+		el: zoomEl.value!,
+		caption: zoomCaption.value || undefined,
+	}),
+	{ unique: true },
+)
+
+/** 点击文章内图片放大预览（Pic 组件已自带灯箱，跳过） */
+function onClickImage(event: MouseEvent) {
+	const img = (event.target as HTMLElement | null)?.closest('img') as HTMLImageElement | null
+	if (!img || !img.closest('.article') || img.closest('figure.image, a'))
+		return
+	zoomEl.value = img
+	zoomCaption.value = img.alt || img.closest('figure')?.querySelector('figcaption')?.textContent?.trim() || ''
+	openLightbox()
+}
+
+onMounted(() => document.addEventListener('click', onClickImage))
+onBeforeUnmount(() => document.removeEventListener('click', onClickImage))
+</script>
+
 <template>
 <NuxtLoadingIndicator />
 <NuxtRouteAnnouncer :style="{ position: 'absolute' }" />
@@ -57,5 +86,9 @@
 		// 也可设置 width: 0 或者 contain: inline-size（兼容性不佳）
 		min-width: 0;
 	}
+}
+
+#main-content .article img {
+	cursor: zoom-in;
 }
 </style>
