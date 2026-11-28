@@ -1,6 +1,13 @@
 <script setup lang="tsx">
 import type { TippyComponent } from 'vue-tippy'
 
+const props = withDefaults(defineProps<{
+	path?: string
+	title?: string
+}>(), {
+	title: '评论区',
+})
+
 const appConfig = useAppConfig()
 
 const commentEl = useTemplateRef('comment')
@@ -54,8 +61,8 @@ function confirmOpen() {
 onMounted(() => {
 	window.twikoo?.init?.({
 		envId: appConfig.twikoo?.envId,
-		// twikoo 会把挂载后的元素变为 #twikoo
 		el: '#twikoo',
+		path: props.path,
 	})
 })
 </script>
@@ -63,7 +70,7 @@ onMounted(() => {
 <template>
 <section ref="comment" class="z-comment">
 	<h3 class="text-creative">
-		评论区
+		{{ title }}
 	</h3>
 
 	<!-- interactive 默认会把气泡移动到 triggerTarget 的父元素上 -->
@@ -143,7 +150,7 @@ onMounted(() => {
 	}
 }
 
-:deep(#twikoo) {
+:deep([id^="twikoo"]) {
 	margin: 2em 0;
 
 	.tk-admin-container {
