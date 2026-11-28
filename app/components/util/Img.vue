@@ -17,14 +17,18 @@ const props = withDefaults(defineProps<UtilImgProps>(), {
 })
 
 const src = computed(() => {
-	if (props.src.startsWith('/') && !props.src.startsWith('//')) {
+	const value = !props.src.startsWith('/') && !props.src.includes('://') && !props.src.startsWith('data:')
+		? `/${props.src}`
+		: props.src
+
+	if (value.startsWith('/') && !value.startsWith('//')) {
 		const _base = withLeadingSlash(withTrailingSlash(useRuntimeConfig().app.baseURL))
-		if (_base !== '/' && !props.src.startsWith(_base))
-			return joinURL(_base, props.src)
+		if (_base !== '/' && !value.startsWith(_base))
+			return joinURL(_base, value)
 	}
 	if (props.mirror)
-		return getImgUrl(props.src, props.mirror)
-	return props.src
+		return getImgUrl(value, props.mirror)
+	return value
 })
 </script>
 

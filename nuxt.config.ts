@@ -1,7 +1,7 @@
 import { resolve } from 'node:path'
 import { arch, env, version as nodeVersion, platform } from 'node:process'
 import { pathToFileURL } from 'node:url'
-import { name as ciName, NETLIFY } from 'ci-info'
+import { name as ciName } from 'ci-info'
 import { mapValues } from 'es-toolkit/object'
 import { pascalCase } from 'es-toolkit/string'
 import { Temporal } from 'temporal-polyfill'
@@ -177,6 +177,7 @@ export default defineNuxtConfig({
 				},
 				// @keep-sorted
 				rehypePlugins: {
+					[pluginPath('rehype-image-props')]: { publicDir: resolve('./public') },
 					[pluginPath('rehype-meta-slots')]: {},
 					'rehype-katex': {},
 				},
@@ -198,12 +199,16 @@ ${packageJson.homepage}
 `)
 		},
 		'content:file:afterParse': (ctx) => {
-			const { permalink, path } = ctx.content as Record<string, string | undefined>
+			const { permalink, path, image } = ctx.content as Record<string, string | undefined>
 			// 优先使用自定义链接（permalink/abbrlink），其次隐藏基于文件路由的 URL 中的 /posts 前缀
 			if (permalink)
 				ctx.content.path = permalink
 			else if (blogConfig.article.hidePostPrefix && path?.startsWith('/posts/'))
 				ctx.content.path = path.slice('/posts'.length)
+
+			// 本地图片统一成绝对路径，供 NuxtImg / Pic 使用
+			if (image && !image.startsWith('/') && !image.includes('://') && !image.startsWith('data:'))
+				ctx.content.image = `/${image}`
 		},
 	},
 
@@ -219,12 +224,8 @@ ${packageJson.homepage}
 	},
 
 	image: {
-		// 尽量以这些密度点对点显示
-		densities: [1, 1.5, 2],
-		format: ['avif', 'webp'],
-		// Neylify 下 netlify 处理器无法显示站外图片，ipx 处理器无法显示站内图片，需彻底禁用
-		// https://github.com/nuxt/image/issues/1353
-		provider: NETLIFY ? 'none' : undefined,
+		// 静态托管直接使用 public 中的原图，避免再生成一份 _ipx 副本
+		provider: 'none',
 	},
 
 	linkChecker: {
